@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!--    <bean id="alien" class="org.example.Alien" >-->
+<!--        <property name="val">-->
+<!--            <value>-->
+<!--                90-->
+<!--            </value>-->
+<!--        </property>-->
+<!--        <property name="spaceship" ref="spaceship1">-->
+
+<!--        </property>-->
+<!--    </bean>-->
+
+    <bean id="alien" class="org.example.Alien">
+        <!--constructor injection -->
+        <constructor-arg ref="spaceship1"/>
+        <constructor-arg ref="speedboat"/>
+        <!--setter injection -->
+        <property name="val">
+            <value>
+                800
+            </value>
+        </property>
+    </bean>
+    <bean id="spaceship1" class="org.example.Spaceship">
+        <constructor-arg value="23"/>
+    </bean>
+    <bean id="speedboat" class="org.example.Boat"/>
+    <bean id="based" class="org.example.Bike" lazy-init="true"/>
+</beans>
